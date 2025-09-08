@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>megaTetris</title>
+    <link rel="stylesheet" href="welcomePageStyle.css">
+</head>
+
+<body>
+    <script>
+        // Сохраняем имя пользователя в localStorage
+        function store() {
+            const inputName = document.getElementsByName("inputName")[0];
+            localStorage.setItem("tetris.username", inputName.value);
+        }
+
+
+        // Перенаправляем пользователя на главную страничку с игрой
+        function redirectFromWelcomePage() {
+            window.location = "https://localhost:8443/";
+        }
+    </script>
+
+    <form action="../index.html" method="get" class="welcomeForm">
+        <label>
+            Введите имя: <br>
+            <input type="text" placeholder="Имя пользователя" name="inputName" minlength="2" maxlength="10" required> <br>
+            <span id="error-message" style="color: red;"></span>
+        </label>
+        <button onclick="store(); redirectFromWelcomePage()" type="submit">
+            Меня так зовут!
+        </button>
+    </form>
+</body>
+</html>

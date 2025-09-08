@@ -1,0 +1,57 @@
+body {
+    display: flex;
+    justify-content: center; /* Центрируем содержимое по горизонтали */
+    align-items: center; /* Центрируем содержимое по вертикали */
+    background-image: url("../images/backgrorund.jpg");
+    background-size: cover;
+    height: 100vh; /* Задаем высоту вьюпорта */
+    margin: 0;
+    background-color: #000000;
+    font-family: '3270 Nerd Font Mono', 'sans-serif';
+}
+
+.welcomeForm {
+    display: flex;
+    flex-direction: column; /* Вертикальное расположение элементов */
+    align-items: center; /* Центрируем элементы по горизонтали */
+    background-color: rgba(0, 0, 0, 0.65);
+    border-radius: 10px; /* Закругленные углы */
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1); /* Тень для формы */
+    padding: 20px; /* Отступы внутри формы */
+    width: 300px;
+    font-family: '3270 Nerd Font Mono', 'sans-serif';
+}
+
+label {
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: crimson;
+    font-family: '3270 Nerd Font Mono', 'sans-serif';
+}
+
+input {
+    padding: 10px; /* Отступы внутри поля ввода */
+    border: 2px solid darkred;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box; /* Учитываем отступы и рамки в ширине */
+    background: black;
+    color: white;
+    font-family: '3270 Nerd Font Mono', 'sans-serif';
+}
+
+button {
+    padding: 10px; /* Отступы внутри кнопки */
+    background-color: darkred;
+    color: white;
+    border: none; /* Убираем рамку */
+    border-radius: 5px; /* Закругленные углы для кнопки */
+    cursor: pointer; /* Указатель при наведении */
+    font-size: 16px; /* Размер шрифта для кнопки */
+    transition: background-color 0.3s; /* Плавный переход цвета фона */
+    font-family: '3270 Nerd Font Mono', 'sans-serif';
+}
+
+button:hover {
+    background-color: crimson; /* Ярко-красный цвет фона кнопки при наведении */
+}

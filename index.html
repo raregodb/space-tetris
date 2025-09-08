@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>megaTetris</title>
+    <link rel="stylesheet" href="tetrisPageStyle.css">
+</head>
+
+<body>
+    <div class="leftContainer">
+        <div class="welcomeMessage" id="welcomeMessage"></div>
+        <div class="instructions">
+            <h2>Управление:</h2>
+            <p>Стрелки вправо-влево: перемещение фигуры вправо-влево</p>
+            <p>Стрелка вниз: soft drop</p>
+            <p>Пробел: hard drop</p>
+            <p>Стрелка вверх: перевернуть фигуру</p>
+            <p>R: начать сначала</p>
+        </div>
+        <div>
+            <audio class="music" id="music" src="audio/Cowboy%20Bebop%20Theme%20-%20Tank!%20(8-Bit).mp3" autoplay
+                   preload="auto" loop></audio>
+            <button class="musicButton" id="musicButton"></button>
+        </div>
+    </div>
+
+    <div class="nextTetrominoDiv" id="nextTetrominoDiv">
+        <canvas width="128" height="128" id="nextTetrominoCanvas"></canvas>
+    </div>
+
+    <div class="container">
+        <div class="score" id="score">Score: 0</div>
+        <div class="level" id="level">Level: 0</div>
+        <canvas class="playField" width="320" height="640" id="Well"></canvas>
+    </div>
+
+    <div class="scoreTable" id="scoreTable">
+        <h3>
+            TOP 10
+        </h3>
+    </div>
+
+    <script src="index.js" type="module"></script>
+    <script type="module">
+        import { read, displayLeaderboard, clearScoreTable, playAudio } from './index.js';
+        // Вызываем функции при загрузке страницы
+        window.onload = () => {
+            // Считываем имя пользователя
+            read();
+            //clearScoreTable();
+            // Отображаем доску
+            displayLeaderboard();
+
+            // Привязываем функцию к кнопке
+            const musicButton = document.getElementById("musicButton");
+            musicButton.addEventListener("click", playAudio);
+        };
+    </script>
+
+    <script type="module" src="tetris.js"></script>
+    <script type="module">
+        import { gameLoop } from './tetris.js';
+        // Запускаем цикл игры
+        // создает цикл, который обновляет состояние игры и отрисовывает элементы на экране с определенной частотой.
+        let rAF = requestAnimationFrame(gameLoop);
+    </script>
+</body>
+</html>
